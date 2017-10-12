@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { GamesDataService } from './games-data.service';
+import { GamesTableComponent } from './games-table/games-table.component';
+import { GamesTableRowComponent } from './games-table-row/games-table-row.component';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		GamesTableComponent,
+		GamesTableRowComponent
 	],
 	imports: [
 		FormsModule,

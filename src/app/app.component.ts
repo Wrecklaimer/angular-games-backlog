@@ -7,19 +7,19 @@ import { GamesDataService} from './games-data.service';
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
-	providers: [GamesDataService]
+	providers: []
 })
 export class AppComponent {
-	newGame: Game = new Game();
+	newGame: Game = new Game({title: '', release_date: '1990-01-01', status: 0});
 
 	constructor(private gamesDataService: GamesDataService) { }
 
 	addGame() {
 		this.gamesDataService.addGame(this.newGame);
-		this.newGame = new Game();
+		this.newGame = new Game({title: '', release_date: '1990-01-01', status: 0});
 	}
 
-	removeGame(game) {
+	onRemoveGame(game: Game) {
 		this.gamesDataService.deleteGameById(game.id);
 	}
 

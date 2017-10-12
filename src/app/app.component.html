@@ -3,16 +3,7 @@
 		<h1>Games</h1>
 		<input placeholder="Game title" autofocus="" [(ngModel)]="newGame.title" (keyup.enter)="addGame()">
 	</header>
-	<section class="main" *ngIf="games.length > 0">
-		<ul>
-			<li *ngFor="let game of games">
-				<div class="view">
-					<span>{{game.title}}</span>
-					<button (click)="removeGame(game)">Remove</button>
-				</div>
-			</li>
-		</ul>
-	</section>
+	<app-games-table [games]="games" (remove)="onRemoveGame($event)"></app-games-table>
 	<footer class="footer" *ngIf="games.length > 0">
 		<span><strong>{{games.length}}</strong> {{games.length == 1 ? 'game' : 'games'}} left</span>
 	</footer>
