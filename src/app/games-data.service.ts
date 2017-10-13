@@ -1,46 +1,30 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import { Game } from './game';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class GamesDataService {
-	lastId: number = 0;
-	games: Game[] = [];
+	constructor(private api: ApiService) { }
 
-	constructor() { }
-
-	addGame(game: Game): GamesDataService {
-		if (!game.id) {
-			game.id = ++this.lastId;
-		}
-		
-		this.games.push(game);
-
-		return this;
+	addGame(game: Game): Observable<Game> {
+		return this.api.createGame(game);
 	}
 
-	updateGameById(id: number, values: Object = {}): Game {
-		let game = this.getGameById(id);
-
-		if (!game) {
-			return null;
-		}
-
-		Object.assign(game, values);
-
-		return game;
+	updateGame(game: Game): Observable<Game> {
+		return this.api.updateGame(game);
 	}
 
-	deleteGameById(id: number): GamesDataService {
-		this.games = this.games.filter(z => z.id !== id);
-
-		return this;
+	deleteGameById(id: number): Observable<Game> {
+		return this.api.deleteGameById(id);
 	}
 
-	getAllGames(): Game[] {
-		return this.games;
+	getAllGames(): Observable<Game[]> {
+		return this.api.getAllGames();
 	}
 
-	getGameById(id: number): Game {
-		return this.games.filter(z => z.id === id).pop();
+	getGameById(id: number): Observable<Game> {
+		return this.api.getGameById(id);
 	}
 }

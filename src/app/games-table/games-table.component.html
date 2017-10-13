@@ -1,13 +1,16 @@
 <section class="main">
 	<table *ngIf="games.length > 0">
 		<thead>
+			<th>ID</th>
 			<th>Title</th>
 			<th>Release Date</th>
 			<th>Status</th>
 			<th>Actions</th>
 		</thead>
 		<tbody>
-			<tr *ngFor="let game of games" app-games-table-row [game]="game" (remove)="onRemoveGame($event)"></tr>
+			<ng-template ngFor let-game [ngForOf]="games">
+				<tr app-games-table-row [game]='game' (remove)='onRemoveGame($event)'></tr>
+			</ng-template>
 		</tbody>
 	</table>
 	<p *ngIf="games.length == 0">No games found</p>

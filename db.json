@@ -1,0 +1,28 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "title": "Super Mario Bros.",
+      "release_date": "1985-09-13",
+      "status": 2
+    },
+    {
+      "id": 2,
+      "title": "Metroid",
+      "release_date": "1987-08-15",
+      "status": 1
+    },
+    {
+      "id": 3,
+      "title": "Duck Hunt",
+      "release_date": "1985-10-18",
+      "status": 0
+    },
+    {
+      "id": 4,
+      "title": "The Legend of Zelda",
+      "release_date": "1986-02-21",
+      "status": 2
+    }
+  ]
+}

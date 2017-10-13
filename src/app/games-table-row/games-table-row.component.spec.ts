@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GamesTableRowComponent } from './games-table-row.component';
+import { Game } from '../game';
 
 describe('GamesTableRowComponent', () => {
   let component: GamesTableRowComponent;
@@ -16,6 +17,7 @@ describe('GamesTableRowComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(GamesTableRowComponent);
     component = fixture.componentInstance;
+    component.game = new Game({id: 1, title: 'Test Row', release_date: '1990-01-01', status: 0});
     fixture.detectChanges();
   });
 

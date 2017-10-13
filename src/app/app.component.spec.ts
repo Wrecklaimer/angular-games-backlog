@@ -1,8 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { Game } from './game';
+import { GamesDataService } from './games-data.service';
+import { ApiService } from './api.service';
+import { ApiMockService } from './api-mock.service';
 
 describe('AppComponent', () => {
 	beforeEach(async(() => {
@@ -13,6 +16,16 @@ describe('AppComponent', () => {
 			declarations: [
 				AppComponent
 			],
+			providers: [
+				GamesDataService,
+				{
+					provide: ApiService,
+					useClass: ApiMockService
+				}
+			],
+			schemas: [
+				NO_ERRORS_SCHEMA
+			]
 		}).compileComponents();
 	}));
 
@@ -21,22 +34,5 @@ describe('AppComponent', () => {
 		const app = fixture.debugElement.componentInstance;
 
 		expect(app).toBeTruthy();
-	}));
-
-	it(`should have a newGame game`, async(() => {
-		let fixture = TestBed.createComponent(AppComponent);
-		let app = fixture.debugElement.componentInstance;
-
-		expect(app.newGame instanceof Game).toBeTruthy()
-	}));
-
-	it('should render title in a h1 tag', async(() => {
-		const fixture = TestBed.createComponent(AppComponent);
-
-		fixture.detectChanges();
-
-		const compiled = fixture.debugElement.nativeElement;
-
-		expect(compiled.querySelector('h1').textContent).toContain('Games');
 	}));
 });

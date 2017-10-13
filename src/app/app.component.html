@@ -1,7 +1,10 @@
 <section>
 	<header class="header">
 		<h1>Games</h1>
-		<input placeholder="Game title" autofocus="" [(ngModel)]="newGame.title" (keyup.enter)="addGame()">
+		<label for="game-title">Title</label> <input name="game-title" placeholder="Game title" autofocus="" [(ngModel)]="game.title">
+		<label for="game-date">Date</label> <input type="date" name="game-date" [(ngModel)]="game.release_date">
+		<label for="game-status">Status</label> <input type="number" min=0 max=2 [(ngModel)]="game.status">
+		<button (click)="addGame(game)">Add</button>
 	</header>
 	<app-games-table [games]="games" (remove)="onRemoveGame($event)"></app-games-table>
 	<footer class="footer" *ngIf="games.length > 0">

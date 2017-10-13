@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { Game } from './game';
 import { GamesDataService} from './games-data.service';
@@ -9,21 +9,34 @@ import { GamesDataService} from './games-data.service';
 	styleUrls: ['./app.component.css'],
 	providers: []
 })
-export class AppComponent {
-	newGame: Game = new Game({title: '', release_date: '1990-01-01', status: 0});
+export class AppComponent implements OnInit {
+	game: Game = new Game({title: '', release_date: '1990-01-01', status: 0});
+	games: Game[] = [];
 
 	constructor(private gamesDataService: GamesDataService) { }
 
-	addGame() {
-		this.gamesDataService.addGame(this.newGame);
-		this.newGame = new Game({title: '', release_date: '1990-01-01', status: 0});
+	public ngOnInit() {
+		this.gamesDataService
+			.getAllGames()
+			.subscribe((games) => {
+				this.games = games;
+			});
+	}
+
+	addGame(game) {
+		this.gamesDataService
+			.addGame(game)
+			.subscribe((game) => {
+				this.games = this.games.concat(game);
+				this.game = new Game({title: '', release_date: '1990-01-01', status: 0});
+			});
 	}
 
 	onRemoveGame(game: Game) {
-		this.gamesDataService.deleteGameById(game.id);
-	}
-
-	get games() {
-		return this.gamesDataService.getAllGames();
+		this.gamesDataService
+			.deleteGameById(game.id)
+			.subscribe((_) => {
+				this.games = this.games.filter((z) => z.id !== game.id);
+			});
 	}
 }
