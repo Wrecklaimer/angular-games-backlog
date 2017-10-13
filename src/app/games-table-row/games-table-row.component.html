@@ -2,4 +2,4 @@
 <td><span>{{game.title}}</span></td>
 <td>{{game.release_date}}</td>
 <td>{{game.status}}</td>
-<td><button (click)="removeGame(game)">Remove</button></td>
+<td><a class="text-danger" (click)="removeGame(game)" aria-label="Remove"><span class="fa fa-close" aria-hidden="true"></span></a></td>
