@@ -8,12 +8,14 @@ import { GamesDataService } from './games-data.service';
 import { GamesTableComponent } from './games-table/games-table.component';
 import { GamesTableRowComponent } from './games-table-row/games-table-row.component';
 import { ApiService } from './api.service';
+import { GameAddComponent } from './game-add/game-add.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		GamesTableComponent,
-		GamesTableRowComponent
+		GamesTableRowComponent,
+		GameAddComponent
 	],
 	imports: [
 		FormsModule,

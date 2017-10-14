@@ -1,15 +1,7 @@
 <section>
 	<header class="header">
 		<h1>Games</h1>
-		<form name="game-form" (ngSubmit)="addGame(game)" class="form-inline">
-			<label class="mr-sm-2" for="game-title">Title</label>
-			<input class="form-control" name="game-title" placeholder="Game title" autofocus="" [(ngModel)]="game.title">
-			<label class="mx-sm-2" for="game-date">Date</label>
-			<input class="form-control" type="date" name="game-date" [(ngModel)]="game.release_date">
-			<label class="mx-sm-2" for="game-status">Status</label>
-			<input class="form-control" type="number" name="game-status" min=0 max=2 [(ngModel)]="game.status">
-			<button type="submit" class="btn btn-success ml-sm-2">Add</button>
-		</form>
+		<app-game-add [newGame]="newGame" (add)="onAddGame($event)"></app-game-add>
 	</header>
 	<app-games-table [games]="games" (remove)="onRemoveGame($event)"></app-games-table>
 	<footer class="footer" *ngIf="games.length > 0">

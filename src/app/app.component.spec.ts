@@ -1,5 +1,4 @@
 import { TestBed, async } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -10,9 +9,7 @@ import { ApiMockService } from './api-mock.service';
 describe('AppComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [
-				FormsModule
-			],
+			imports: [],
 			declarations: [
 				AppComponent
 			],

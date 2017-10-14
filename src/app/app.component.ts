@@ -10,7 +10,7 @@ import { GamesDataService} from './games-data.service';
 	providers: []
 })
 export class AppComponent implements OnInit {
-	game: Game = new Game({title: '', release_date: '1990-01-01', status: 0});
+	newGame: Game = new Game({title: '', release_date: '1990-01-01', status: 0});
 	games: Game[] = [];
 
 	constructor(private gamesDataService: GamesDataService) { }
@@ -23,12 +23,12 @@ export class AppComponent implements OnInit {
 			});
 	}
 
-	addGame(game) {
+	onAddGame(game) {
 		this.gamesDataService
 			.addGame(game)
 			.subscribe((game) => {
 				this.games = this.games.concat(game);
-				this.game = new Game({title: '', release_date: '1990-01-01', status: 0});
+				this.newGame = new Game({title: '', release_date: '1990-01-01', status: 0});
 			});
 	}
 
