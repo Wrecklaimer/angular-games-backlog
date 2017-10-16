@@ -1,42 +1,12 @@
 import { Component, OnInit} from '@angular/core';
 
-import { Game } from './game';
-import { GamesDataService} from './games-data.service';
-
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css'],
-	providers: []
+	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-	newGame: Game = new Game({title: '', release_date: '1990-01-01', status: 0});
-	games: Game[] = [];
+	constructor() { }
 
-	constructor(private gamesDataService: GamesDataService) { }
-
-	public ngOnInit() {
-		this.gamesDataService
-			.getAllGames()
-			.subscribe((games) => {
-				this.games = games;
-			});
-	}
-
-	onAddGame(game) {
-		this.gamesDataService
-			.addGame(game)
-			.subscribe((game) => {
-				this.games = this.games.concat(game);
-				this.newGame = new Game({title: '', release_date: '1990-01-01', status: 0});
-			});
-	}
-
-	onRemoveGame(game: Game) {
-		this.gamesDataService
-			.deleteGameById(game.id)
-			.subscribe((_) => {
-				this.games = this.games.filter((z) => z.id !== game.id);
-			});
-	}
+	public ngOnInit() { }
 }

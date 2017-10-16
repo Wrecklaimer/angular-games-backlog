@@ -1,25 +1,13 @@
-import { TestBed, async } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import { GamesDataService } from './games-data.service';
-import { ApiService } from './api.service';
-import { ApiMockService } from './api-mock.service';
 
 describe('AppComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			imports: [],
-			declarations: [
-				AppComponent
-			],
-			providers: [
-				GamesDataService,
-				{
-					provide: ApiService,
-					useClass: ApiMockService
-				}
-			],
+			declarations: [AppComponent],
 			schemas: [
 				NO_ERRORS_SCHEMA
 			]

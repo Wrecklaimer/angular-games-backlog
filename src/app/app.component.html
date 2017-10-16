@@ -1,12 +1,1 @@
-<section>
-	<header class="header">
-		<h1>Games</h1>
-		<app-game-add [newGame]="newGame" (add)="onAddGame($event)"></app-game-add>
-	</header>
-	<app-games-table [games]="games" (remove)="onRemoveGame($event)"></app-games-table>
-	<footer class="footer" *ngIf="games.length > 0">
-		<span><strong>{{games.length}}</strong> {{games.length == 1 ? 'game' : 'games'}} left</span>
-	</footer>
-</section>
-
-
+<router-outlet></router-outlet>
