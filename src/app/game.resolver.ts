@@ -6,12 +6,12 @@ import { Game } from './game';
 import { GamesDataService } from './games-data.service';
 
 @Injectable()
-export class GamesResolver implements Resolve<Observable<Game[]>> {
+export class GameResolver implements Resolve<Observable<Game>> {
 
 	constructor(private gamesDataService: GamesDataService) {
 	}
 
-	public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Game[]> {
-		return this.gamesDataService.getAllGames();
+	public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Game> {
+		return this.gamesDataService.getGameById(route.params['id']);
 	}
 }

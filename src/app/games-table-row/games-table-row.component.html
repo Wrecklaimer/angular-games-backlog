@@ -1,5 +1,5 @@
 <td>{{game.id}}</td>
-<td><span>{{game.title}}</span></td>
+<td><a href="/games/{{game.id}}" >{{game.title}}</a></td>
 <td>{{game.release_date}}</td>
 <td>{{game.status}}</td>
-<td><a class="text-danger" (click)="removeGame(game)" aria-label="Remove"><span class="fa fa-close" aria-hidden="true"></span></a></td>
+<td><a role="button" class="text-danger" (click)="removeGame(game)" aria-label="Remove"><span class="fa fa-close" aria-hidden="true"></span></a></td>

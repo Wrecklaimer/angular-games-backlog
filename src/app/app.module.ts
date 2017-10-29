@@ -12,6 +12,7 @@ import { GamesTableRowComponent } from './games-table-row/games-table-row.compon
 import { GameAddComponent } from './game-add/game-add.component';
 import { GamesComponent } from './games/games.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
 	declarations: [
@@ -20,7 +21,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 		GamesTableRowComponent,
 		GameAddComponent,
 		GamesComponent,
-		PageNotFoundComponent
+		PageNotFoundComponent,
+		GameComponent
 	],
 	imports: [
 		FormsModule,

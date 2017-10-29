@@ -1,8 +1,8 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
-import { GamesDataService } from './games-data.service';
+import { ApiMockService } from './api-mock.service';
 import { ApiService } from './api.service';
-import { ApiMockService }  from './api-mock.service';
+import { GamesDataService } from './games-data.service';
 
 describe('GamesServiceService', () => {
 	beforeEach(() => {

@@ -11,6 +11,7 @@ export class GamesTableComponent implements OnInit {
 	@Input() games: Game[];
 
 	@Output() remove: EventEmitter<Game> = new EventEmitter();
+	@Output() open: EventEmitter<Game> = new EventEmitter();
 
 	constructor() { }
 
@@ -18,5 +19,9 @@ export class GamesTableComponent implements OnInit {
 
 	onRemoveGame(game: Game) {
 		this.remove.emit(game);
+	}
+
+	onOpenGame(game: Game) {
+		this.open.emit(game);
 	}
 }

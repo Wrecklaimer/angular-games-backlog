@@ -9,7 +9,7 @@
 		</thead>
 		<tbody>
 			<ng-template ngFor let-game [ngForOf]="games">
-				<tr app-games-table-row [game]='game' (remove)='onRemoveGame($event)'></tr>
+				<tr app-games-table-row [game]='game' (remove)='onRemoveGame($event)' (open)='onOpenGame($event)'></tr>
 			</ng-template>
 		</tbody>
 	</table>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Game } from '../game';
 
@@ -11,12 +11,19 @@ export class GamesTableRowComponent implements OnInit {
 	@Input() game: Game;
 
 	@Output() remove: EventEmitter<Game> = new EventEmitter();
+	@Output() open: EventEmitter<Game> = new EventEmitter();
 
 	constructor() { }
 
 	ngOnInit() { }
 
 	removeGame(game: Game) {
-		this.remove.emit(game);
+		if (confirm("Delete this game?")) {
+			this.remove.emit(game);
+		}
+	}
+
+	openGame(game: Game) {
+		this.open.emit(game);
 	}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Game } from '../game';
 import { GamesDataService} from '../games-data.service';
@@ -14,7 +14,7 @@ export class GamesComponent implements OnInit {
 	newGame: Game = new Game({title: '', release_date: '1990-01-01', status: 0});
 	games: Game[] = [];
 
-	constructor(private gamesDataService: GamesDataService, private activatedRoute: ActivatedRoute) { }
+	constructor(private gamesDataService: GamesDataService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
 	public ngOnInit() {
 		this.activatedRoute.data
@@ -39,5 +39,9 @@ export class GamesComponent implements OnInit {
 			.subscribe((_) => {
 				this.games = this.games.filter((z) => z.id !== game.id);
 			});
+	}
+
+	onOpenGame(game: Game) {
+		this.router.navigate(['/games/1']);
 	}
 }
