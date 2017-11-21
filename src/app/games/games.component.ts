@@ -14,7 +14,11 @@ export class GamesComponent implements OnInit {
 	newGame: Game = new Game({title: '', release_date: '1990-01-01', status: 0});
 	games: Game[] = [];
 
-	constructor(private gamesDataService: GamesDataService, private activatedRoute: ActivatedRoute, private router: Router) { }
+	constructor(
+		private activatedRoute: ActivatedRoute,
+		private router: Router,
+		private gamesDataService: GamesDataService
+	) { }
 
 	public ngOnInit() {
 		this.activatedRoute.data
@@ -27,8 +31,8 @@ export class GamesComponent implements OnInit {
 	onAddGame(game) {
 		this.gamesDataService
 			.addGame(game)
-			.subscribe((game) => {
-				this.games = this.games.concat(game);
+			.subscribe((data) => {
+				this.games = this.games.concat(data);
 				this.newGame = new Game({title: '', release_date: '1990-01-01', status: 0});
 			});
 	}

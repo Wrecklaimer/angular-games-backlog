@@ -1,7 +1,8 @@
-import { Observable } from 'rxjs/Rx';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 import { GamesComponent } from './games.component';
 import { GamesDataService } from '../games-data.service';
@@ -28,6 +29,10 @@ describe('GamesComponent', () => {
 							games: []
 						})
 					}
+				},
+				{
+					provide: Router,
+					useValue: {}
 				}
 			],
 			schemas: [
