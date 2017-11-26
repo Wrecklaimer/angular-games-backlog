@@ -1,6 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnInit,
+	Output
+} from '@angular/core';
 
-import { Game } from '../game';
+import { Game } from '../core/api';
 
 @Component({
 	selector: 'app-games-table',

@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import {
+	ActivatedRouteSnapshot,
+	Resolve,
+	RouterStateSnapshot
+} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { Game } from './game';
-import { GamesDataService } from './games-data.service';
+import { Game, GamesDataService } from '../core/api';
 
 @Injectable()
 export class GamesResolver implements Resolve<Observable<Game[]>> {
-
 	constructor(private gamesDataService: GamesDataService) {
 	}
 

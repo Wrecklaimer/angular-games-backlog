@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { GameComponent } from './game.component';
-import { Game } from '../game';
+import { Game } from '../core/api';
 
 describe('GameComponent', () => {
 	let component: GameComponent;

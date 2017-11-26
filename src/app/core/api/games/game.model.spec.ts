@@ -1,4 +1,4 @@
-import { Game } from './game';
+import { Game } from './game.model';
 
 describe('Game', () => {
 	it('should create an instance', () => {
@@ -11,7 +11,7 @@ describe('Game', () => {
 			release_date: '1990-01-01',
 			status: 0
 		});
-		
+
 		expect(game.title).toEqual('Test');
 		expect(game.release_date).toEqual('1990-01-01');
 		expect(game.status).toEqual(0);

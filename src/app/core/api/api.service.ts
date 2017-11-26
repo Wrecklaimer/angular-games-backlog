@@ -5,14 +5,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import { environment } from '../environments/environment';
-import { Game } from './game';
+import { environment } from '../../../environments/environment';
+import { Game } from './games/game.model';
 
 const API_URL = environment.apiUrl;
 
 @Injectable()
 export class ApiService {
-
 	constructor(private http: HttpClient) { }
 
 	// API: GET /games

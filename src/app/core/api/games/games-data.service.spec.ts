@@ -1,7 +1,7 @@
 import { inject, TestBed } from '@angular/core/testing';
 
-import { ApiMockService } from './api-mock.service';
-import { ApiService } from './api.service';
+import { ApiServiceMock } from '../api.service.mock';
+import { ApiService } from '../api.service';
 import { GamesDataService } from './games-data.service';
 
 describe('GamesServiceService', () => {
@@ -11,7 +11,7 @@ describe('GamesServiceService', () => {
 				GamesDataService,
 				{
 					provide: ApiService,
-					useClass: ApiMockService
+					useClass: ApiServiceMock
 				}
 			]
 		});

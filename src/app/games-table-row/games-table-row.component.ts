@@ -1,6 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnInit,
+	Output
+} from '@angular/core';
 
-import { Game } from '../game';
+import { Game } from '../core/api';
 
 @Component({
 	selector: '[app-games-table-row]',
@@ -18,7 +24,7 @@ export class GamesTableRowComponent implements OnInit {
 	ngOnInit() { }
 
 	removeGame(game: Game) {
-		if (confirm("Delete this game?")) {
+		if (confirm('Delete this game?')) {
 			this.remove.emit(game);
 		}
 	}

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiService } from './api.service';
-import { Game } from './game';
+import { ApiService } from '../api.service';
+import { Game } from './game.model';
 
 @Injectable()
 export class GamesDataService {

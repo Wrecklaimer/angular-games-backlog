@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
 import { GameAddComponent } from './game-add.component';
-import { Game } from '../game';
+import { Game } from '../core/api';
 
 describe('GameAddComponent', () => {
 	let component: GameAddComponent;
