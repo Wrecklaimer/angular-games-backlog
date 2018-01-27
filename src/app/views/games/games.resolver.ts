@@ -17,7 +17,7 @@ export class GamesResolver implements Resolve<Observable<Game[]>> {
 	public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Game[]> {
 		return this.gamesDataService.getAllGames()
 		.catch(error => {
-			return Observable.of(new Array<Game>());
+			return Observable.of(null);
 		});
 	}
 }

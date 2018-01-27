@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="games">
 	<header class="header">
 		<h1>Games</h1>
 		<app-game-add [newGame]="newGame" (add)="onAddGame($event)"></app-game-add>
@@ -8,3 +8,6 @@
 		<span><strong>{{games.length}}</strong> {{games.length == 1 ? 'game' : 'games'}} left</span>
 	</footer>
 </section>
+<ng-container *ngIf="!games">
+	<p>Server not available!</p>
+</ng-container>
