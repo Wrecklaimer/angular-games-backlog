@@ -15,21 +15,27 @@ const routes: Routes = [
 	{
 		path: '',
 		redirectTo: 'games',
-		pathMatch: 'full'
+		pathMatch: 'full',
 	},
 	{
 		path: 'games',
 		component: GamesComponent,
 		resolve: {
 			games: GamesResolver
-		}
+		},
+		data: {
+			title: 'Games',
+		},
 	},
 	{
 		path: 'games/:id',
 		component: GameComponent,
 		resolve: {
 			game: GameResolver
-		}
+		},
+		data: {
+			title: 'Game',
+		},
 	},
 	{
 		path: '**',
