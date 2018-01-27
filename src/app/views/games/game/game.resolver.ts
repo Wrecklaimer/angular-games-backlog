@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { Game, GamesDataService } from '../core/api';
+import { Game, GamesDataService } from '../../../core/api';
 
 @Injectable()
 export class GameResolver implements Resolve<Observable<Game>> {

@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { GamesTableRowComponent } from './games-table-row.component';
-import { Game } from '../core/api';
+import { Game } from '../../../core/api';
 
 @Component({
 	template: ''

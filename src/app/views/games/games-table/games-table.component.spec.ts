@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { GamesTableComponent } from './games-table.component';
-import { Game } from '../core/api';
+import { Game } from '../../../core/api';
 
 describe('GamesTableComponent', () => {
 	let component: GamesTableComponent;

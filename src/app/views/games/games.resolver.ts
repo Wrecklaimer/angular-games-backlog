@@ -5,8 +5,9 @@ import {
 	RouterStateSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
-import { Game, GamesDataService } from '../core/api';
+import { Game, GamesDataService } from '../../core/api';
 
 @Injectable()
 export class GamesResolver implements Resolve<Observable<Game[]>> {
@@ -14,6 +15,9 @@ export class GamesResolver implements Resolve<Observable<Game[]>> {
 	}
 
 	public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Game[]> {
-		return this.gamesDataService.getAllGames();
+		return this.gamesDataService.getAllGames()
+		.catch(error => {
+			return Observable.of(new Array<Game>());
+		});
 	}
 }

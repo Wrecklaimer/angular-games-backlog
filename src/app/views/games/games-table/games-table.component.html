@@ -1,0 +1,19 @@
+<section class="main">
+	<table class="table table-striped">
+		<thead>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Release Date</th>
+			<th>Status</th>
+			<th>Actions</th>
+		</thead>
+		<tbody>
+			<ng-container *ngIf="games.length > 0">
+				<ng-template ngFor let-game [ngForOf]="games">
+					<tr app-games-table-row [game]='game' (remove)='onRemoveGame($event)' (open)='onOpenGame($event)'></tr>
+				</ng-template>
+			</ng-container>
+			<tr *ngIf="games.length == 0"><td colspan="5" class="text-center">No games found</td></tr>
+		</tbody>
+	</table>
+</section>

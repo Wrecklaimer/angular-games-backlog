@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { GamesComponent } from './games.component';
-import { ApiService, ApiServiceMock, GamesDataService } from '../core/api';
+import { ApiService, ApiServiceMock, GamesDataService } from '../../core/api';
 
 describe('GamesComponent', () => {
 	let component: GamesComponent;

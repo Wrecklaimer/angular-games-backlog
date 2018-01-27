@@ -6,7 +6,7 @@ import {
 	Output
 } from '@angular/core';
 
-import { Game } from '../core/api';
+import { Game } from '../../../core/api';
 
 @Component({
 	selector: 'app-games-table',
